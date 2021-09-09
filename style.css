@@ -1,0 +1,103 @@
+body {
+    background-color: whitesmoke;
+}
+
+h2{
+    margin-left: 42%;
+   
+}
+h3{
+    margin-left: 39%;
+   
+}
+section{
+    padding: 25px 0;
+    border-bottom:1px solid purple;
+   
+}
+div.twiit{
+    padding: 25px 0;
+    border-bottom:1px solid purple;
+   
+}
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    background: white;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 15px 0;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom:1px solid purple;
+    
+}
+.headline {
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+.nav-list {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.nav-list-item {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#content {
+    width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+#container {
+    margin: 30px;
+}
+
+img {
+    width: 560px;
+}
+
+.body_file {
+    text-align: center;
+    font-size: 1.5rem;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.filelabel {
+    display: inline-block;
+    position: relative;
+    background-color: #9b4dca;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.filelabel:hover {
+    background-color: #8b979c;
+}
+
+.fileinput {
+    display: none;
+}
+
+.btn_right {
+    margin-left: 85%;
+}
+
+.btn_submit {
+    margin-left: 38%;
+}
+
+.btn_search {
+    margin-left: 41%;
+}
