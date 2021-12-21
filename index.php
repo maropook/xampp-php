@@ -63,8 +63,18 @@ try {
         $stmt->bindValue(':content', $content, PDO::PARAM_STR);
         $stmt->execute();
     }   else if (isset($_POST['good'])) {
+
+
+if($_POST['good']==0){
+
+    $good = 1;
+}else{
+    $good = 0;
+}
         $id = $_POST['id'];
-        $good = $_POST['good']+1;
+
+
+        $img ="heart.png";
         $sql = "UPDATE movie SET good = :good WHERE  id =:id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -101,7 +111,7 @@ try {
 
 <head>
     <meta charset="utf-8">
-    <title>tiktok</title>
+    <title>掲示板</title>
 
     <head>
         <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
@@ -115,7 +125,7 @@ try {
     <div id="content">
         <header>
             <h1 class="headline">
-                <a href="index.php">tiktok</a>
+                <a href="index.php">掲示板</a>
             </h1>
             <ul class="nav-list">
                 <li class="nav-list-item"><a href="post.php">Post</a></li>
@@ -170,7 +180,10 @@ try {
                             <?php echo ($row['timestamp']); ?>
                         </td><br>
                         <td><?= $row['content'] ?></td>
+
                         <td><?= $row['good'] ?></td>
+                        <img style="width:40px" src="<?= $row['good'] ?>.png" alt="">
+
                         <?php
                         //動画と画像で場合分け
                         $target = $row["fname"];
@@ -229,10 +242,13 @@ try {
 
                             </form>
                             <form method="POST">
-                                <div style="display:flex">
+                            <div style="display:flex">
                              <span style="padding-left:0px"><?= $row['good'] ?></span>
-                                <button class="btn_right" type="submit" name="good">いいね</button>
+                                <img style="width:20px;height:20px;" src="<?= $row['good'] ?>.png" alt="">
+
                             </div>
+                            <button class="btn_right" type="submit" name="good">いいね</button>
+
                                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <input type="hidden" name="good" value="<?= $row['good'] ?>">
                             </form>
@@ -242,10 +258,11 @@ try {
                         $comment_stmt = $pdo->prepare($comment_sql);
                         $comment_stmt->execute();
                         ?>
+                        <p>コメント</p>
                         <?php  while ($comment_row = $comment_stmt->fetch(PDO::FETCH_ASSOC)) {
                             if ( $comment_row['movie_id'] ==$row['id']){
                            ?>
-                         <div> comment;<?= $comment_row['comment'] ?>;</div>
+                         <div> <?= $comment_row['comment'] ?></div>
                         <?php
                         } ?>
                         <?php
